@@ -10,9 +10,6 @@
       </nav>
     </header>
     <main>
-			<div class="robt-name">
-				This is a test
-			</div>
       <RobotBuilder />
     </main>
   </div>
