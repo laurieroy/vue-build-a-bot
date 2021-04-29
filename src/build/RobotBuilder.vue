@@ -131,8 +131,8 @@ export default {
         + robot.leftArm.cost
         + robot.torso.cost
         + robot.rightArm.cost
-        + robot.base.cost;
-      this.cart.push({ ...robot, cost });
+				+ robot.base.cost;
+      this.$store.commit('addRobotToCart', { ...robot, cost });
       this.addedToCart = true;
     },
   },
