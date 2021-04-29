@@ -9,8 +9,10 @@ module.exports = {
   },
   plugins: ["prettier"],
   rules: {
+		"linebreak-style": 0,
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+		"no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+		"no-param-reassign": 0,
     "no-tabs": "off"
   }
 };
