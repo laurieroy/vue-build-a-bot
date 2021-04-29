@@ -22,11 +22,6 @@ export default new Router({
     name: 'Build',
     component: RobotBuilder,
   }, {
-    path: '/parts/:partType/:id',
-    name: 'Parts',
-    component: PartInfo,
-    props: true,
-  }, {
     path: '/parts/browse',
     name: 'BrowseParts',
     component: BrowseParts,
