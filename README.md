@@ -1,6 +1,18 @@
 # build-a-bot
 
-## Project setup
+This project was build following a [tutorial](https://www.pluralsight.com/courses/vuejs-fundamentals) by Jim Cooper on Pluralsight. It demonstrates many of Vue2's capabilities.
+
+### Clone Repo to test locally
+```
+git clone git@github.com:laurieroy/vue-build-a-bot
+```
+
+### Change to that directory
+```
+cd vue-build-a-bot
+```
+
+### Setup project 
 ```
 yarn install
 ```
