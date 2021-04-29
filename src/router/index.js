@@ -68,7 +68,7 @@ export default new Router({
       next(isValidId);
     },
   }, {
-    path: 'cart',
+    path: '/cart',
     name: 'Cart',
     component: ShoppingCart,
   }],
