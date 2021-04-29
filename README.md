@@ -1,6 +1,6 @@
 # build-a-bot
 
-This project was build following a [tutorial](https://www.pluralsight.com/courses/vuejs-fundamentals) by Jim Cooper on Pluralsight. It demonstrates many of Vue2's capabilities.
+This project was buildt following a [tutorial](https://www.pluralsight.com/courses/vuejs-fundamentals) by Jim Cooper on Pluralsight. It demonstrates many of Vue2's capabilities.
 
 ### Clone Repo to test locally
 ```

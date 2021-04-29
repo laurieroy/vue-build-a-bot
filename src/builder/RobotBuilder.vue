@@ -55,23 +55,6 @@
 				@partSelected = "part => selectedRobot.base=part"
 			/>
     </div>
-		<div>
-			<h1>Cart</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Robot</th>
-						<th class="cost">Cost</th>
-					</tr>
-					<tbody>
-						<tr v-for="(robot, index) in cart" :key="index">
-							<td>{{robot.head.title}}</td>
-							<td class="cost">{{robot.cost}}</td>
-						</tr>
-					</tbody>
-				</thead>
-			</table>
-		</div>
   </div>
 </template>
 
@@ -252,15 +235,7 @@ export default {
 .content {
   position: relative;
 }
-td,
-th {
-  text-align: left;
-  padding: 5px;
-  padding-right: 20px;
-}
-.cost {
-  text-align: right;
-}
+
 // preview
 .preview {
   position: absolute;

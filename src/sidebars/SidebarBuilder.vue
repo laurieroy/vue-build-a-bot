@@ -1,10 +1,10 @@
 <template>
-	<div class="sidebar">Build Sidebar</div>
+	<div class="sidebar">Builder Sidebar</div>
 </template>
 
 <script>
 export default {
-  name: 'Build',
+  name: 'Builder',
 };
 </script>
 

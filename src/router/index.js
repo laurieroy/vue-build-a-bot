@@ -2,15 +2,16 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import HomePage from '../home/HomePage.vue';
-import RobotBuilder from '../build/RobotBuilder.vue';
+import RobotBuilder from '../builder/RobotBuilder.vue';
 import PartInfo from '../parts/PartInfo.vue';
 import BrowseParts from '../parts/BrowseParts.vue';
 import RobotArms from '../parts/RobotArms.vue';
 import RobotBases from '../parts/RobotBases.vue';
 import RobotHeads from '../parts/RobotHeads.vue';
 import RobotTorsos from '../parts/RobotTorsos.vue';
-import SidebarBuild from '../sidebars/SidebarBuild.vue';
+import SidebarBuilder from '../sidebars/SidebarBuilder.vue';
 import SidebarStandard from '../sidebars/SidebarStandard.vue';
+import ShoppingCart from '../cart/ShoppingCart.vue';
 
 Vue.use(Router);
 
@@ -24,11 +25,11 @@ export default new Router({
       sidebar: SidebarStandard,
     },
   }, {
-    path: '/build',
-    name: 'Build',
+    path: '/builder',
+    name: 'Builder',
     components: {
       default: RobotBuilder,
-      sidebar: SidebarBuild,
+      sidebar: SidebarBuilder,
     },
   }, {
     path: '/parts/browse',
@@ -66,5 +67,9 @@ export default new Router({
       const isValidId = Number.isInteger(Number(to.params.id));
       next(isValidId);
     },
+  }, {
+    path: 'cart',
+    name: 'Cart',
+    component: ShoppingCart,
   }],
 });
