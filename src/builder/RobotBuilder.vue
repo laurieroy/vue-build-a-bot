@@ -2,64 +2,63 @@
 
 <template>
   <div v-if="availableParts" class="content">
-		<div class="preview">
-			<CollapsibleSection>
-				<div class="preview-content">
-					<div class="top-row">
-						<img :src="selectedRobot.head.src"/>
-					</div>
-					<div class="middle-row">
-						<img :src="selectedRobot.leftArm.src" class="rotate-left"/>
-						<img :src="selectedRobot.torso.src"/>
-						<img :src="selectedRobot.rightArm.src" class="rotate-right"/>
-					</div>
-					<div class="bottom-row">
-						<img :src="selectedRobot.base.src"/>
-					</div>
-				</div>
-			</CollapsibleSection>
-			<button class="add-to-cart" @click="addToCart()">Add to Cart</button>
+    <div class="preview">
+      <CollapsibleSection>
+        <div class="preview-content">
+          <div class="top-row">
+            <img :src="selectedRobot.head.src" />
+          </div>
+          <div class="middle-row">
+            <img :src="selectedRobot.leftArm.src" class="rotate-left" />
+            <img :src="selectedRobot.torso.src" />
+            <img :src="selectedRobot.rightArm.src" class="rotate-right" />
+          </div>
+          <div class="bottom-row">
+            <img :src="selectedRobot.base.src" />
+          </div>
+        </div>
+      </CollapsibleSection>
+      <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
     </div>
     <div class="top-row">
-			<!-- <div class="robot-name">
+      <!-- <div class="robot-name">
           {{ selectedRobot.head.title }}
           <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
         </div> -->
-				<PartSelector
-					:parts="availableParts.heads"
-					position="top"
-					@partSelected = "part => selectedRobot.head=part"
-				/>
-      </div>
+      <PartSelector
+        :parts="availableParts.heads"
+        position="top"
+        @partSelected="(part) => (selectedRobot.head = part)"
+      />
+    </div>
     <div class="middle-row">
-			<PartSelector
-				:parts="availableParts.arms"
-				position="left"
-				@partSelected = "part => selectedRobot.leftArm=part"
-			/>
-			<PartSelector
-				:parts="availableParts.torsos"
-				position="center"
-				@partSelected = "part => selectedRobot.torso=part"
-			/>
-			<PartSelector
-				:parts="availableParts.arms"
-				position="right"
-				@partSelected = "part => selectedRobot.rightArm=part"
-			/>
+      <PartSelector
+        :parts="availableParts.arms"
+        position="left"
+        @partSelected="(part) => (selectedRobot.leftArm = part)"
+      />
+      <PartSelector
+        :parts="availableParts.torsos"
+        position="center"
+        @partSelected="(part) => (selectedRobot.torso = part)"
+      />
+      <PartSelector
+        :parts="availableParts.arms"
+        position="right"
+        @partSelected="(part) => (selectedRobot.rightArm = part)"
+      />
     </div>
     <div class="bottom-row">
-			<PartSelector
-				:parts="availableParts.bases"
-				position="bottom"
-				@partSelected = "part => selectedRobot.base=part"
-			/>
+      <PartSelector
+        :parts="availableParts.bases"
+        position="bottom"
+        @partSelected="(part) => (selectedRobot.base = part)"
+      />
     </div>
   </div>
 </template>
 
 <script>
-
 import CollapsibleSection from '../shared/CollapsibleSection.vue';
 import createdHookMixin from './created-hook-mixin';
 import PartSelector from './PartSelector.vue';
@@ -94,12 +93,10 @@ export default {
       },
     };
   },
-  mixins: [
-    createdHookMixin,
-  ],
+  mixins: [createdHookMixin],
   computed: {
     availableParts() {
-      return this.$store.state.parts;
+      return this.$store.state.robots.parts;
     },
     headBorderStyle() {
       return {
@@ -119,8 +116,10 @@ export default {
         + robot.leftArm.cost
         + robot.torso.cost
         + robot.rightArm.cost
-				+ robot.base.cost;
-      this.$store.commit('addRobotToCart', { ...robot, cost });
+        + robot.base.cost;
+      this.$store
+        .dispatch('addRobotToCart', { ...robot, cost })
+        .then(() => this.$router.push('/cart'));
       this.addedToCart = true;
     },
   },

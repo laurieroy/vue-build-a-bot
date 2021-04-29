@@ -4,44 +4,47 @@
       <nav>
         <ul>
           <li class="nav-item">
-						<router-link class="nav-link" :to="{name: 'Home'}" exact>
-							<img src="./assets/build-a-bot-logo.png" alt="robot" class="logo">Build-a-Bot
-						</router-link>
-					</li>
+            <router-link class="nav-link" :to="{ name: 'Home' }" exact>
+              <img
+                src="./assets/build-a-bot-logo.png"
+                alt="robot"
+                class="logo"
+              />Build-a-Bot
+            </router-link>
+          </li>
           <li class="nav-item">
-						<router-link class="nav-link" :to="{name: 'Builder'}" exact>
-							Builder
-						</router-link>
-					</li>
+            <router-link class="nav-link" :to="{ name: 'Builder' }" exact>
+              Builder
+            </router-link>
+          </li>
           <li class="nav-item cart">
-						<router-link class="nav-link" to="/cart" exact>
-							Shopping Cart
-						</router-link>
-						<div class="cart-items">
-							{{cart.length}}
-						</div>
-					</li>
+            <router-link class="nav-link" to="/cart" exact>
+              Shopping Cart
+            </router-link>
+            <div class="cart-items">
+              {{ cart.length }}
+            </div>
+          </li>
         </ul>
       </nav>
     </header>
-		<div class="container">
-			<aside class="aside">
-				<router-view name="sidebar"></router-view>
-			</aside>
-			<main>
-				<router-view />
-			</main>
-		</div>
+    <div class="container">
+      <aside class="aside">
+        <router-view name="sidebar"></router-view>
+      </aside>
+      <main>
+        <router-view />
+      </main>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'App',
   computed: {
     cart() {
-      return this.$store.state.cart;
+      return this.$store.state.robots.cart;
     },
   },
 };
@@ -80,41 +83,41 @@ ul {
   border-right: 1px solid #bbb;
 }
 .nav-item.cart {
-	position: relative;
-	margin-left: auto;
-	border-right: none;
+  position: relative;
+  margin-left: auto;
+  border-right: none;
 }
 .nav-link {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 .logo {
   vertical-align: middle;
   height: 30px;
 }
 .router-link-active {
-	color: white;
+  color: white;
 }
 .container {
-	display: flex;
-	margin: 10px auto 0 auto;
-	justify-content: center;
+  display: flex;
+  margin: 10px auto 0 auto;
+  justify-content: center;
 }
 .aside {
-	padding: 30px;
-	background-color: #aaa;
-	width: 100px;
-	min-height: 300px;
+  padding: 30px;
+  background-color: #aaa;
+  width: 100px;
+  min-height: 300px;
 }
 .cart-items {
-	position: absolute;
-	top: -5px;
-	right: -9px;
-	font-size: 18px;
-	width: 20px;
-	text-align: center;
-	display: inline-block;
-	border-radius: 100px;
-	background-color: mediumseagreen;
+  position: absolute;
+  top: -5px;
+  right: -9px;
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 100px;
+  background-color: mediumseagreen;
 }
 </style>

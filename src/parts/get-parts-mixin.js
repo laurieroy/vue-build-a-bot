@@ -4,12 +4,14 @@ export default {
   },
   computed: {
     parts() {
-      return this.$store.state.parts || {
-        arms: [],
-        bases: [],
-        heads: [],
-        torsos: [],
-      };
+      return (
+        this.$store.state.robots.parts || {
+          arms: [],
+          bases: [],
+          heads: [],
+          torsos: [],
+        }
+      );
     },
   },
 };
