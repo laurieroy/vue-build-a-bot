@@ -1,6 +1,10 @@
 # build-a-bot
 
-This project was buildt following a [tutorial](https://www.pluralsight.com/courses/vuejs-fundamentals) by Jim Cooper on Pluralsight. It demonstrates many of Vue2's capabilities.
+This project was built following a [tutorial](https://www.pluralsight.com/courses/vuejs-fundamentals) by Jim Cooper on Pluralsight. It demonstrates many of Vue2's capabilities.
+
+A user see a robot and can select from a choice for new head, torso, arms, and base. Some items are on sale. The selected bot is sent to a cart, and total price displayed for checkout.
+<!-- Bot price no longer displays in checkout.  -->
+<!-- Also eslint is playing well w/prettier.  -->
 
 ### Clone Repo to test locally
 ```
